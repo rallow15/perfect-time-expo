@@ -6,13 +6,26 @@
     "sdkVersion": "54.0.0",
     "orientation": "portrait",
     "backgroundColor": "#050810",
-    "platforms": ["ios", "android"],
+    "platforms": [
+      "ios",
+      "android"
+    ],
     "ios": {
-      "supportsTablet": false
+      "supportsTablet": false,
+      "bundleIdentifier": "y",
+      "infoPlist": {
+        "ITSAppUsesNonExemptEncryption": false
+      }
     },
     "android": {
       "adaptiveIcon": {
         "backgroundColor": "#050810"
+      },
+      "package": "com.rallow15.perfecttime"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "63542b21-9de4-4dcf-863f-4471d22dea9a"
       }
     }
   }
