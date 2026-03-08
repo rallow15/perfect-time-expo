@@ -4,10 +4,10 @@ workflows:
     max_build_duration: 120
     environment:
       ios_signing:
-        distribution_type: ad_hoc
-        bundle_identifier: com.rallow.perfecttime
+        distribution_type: app_store
+        bundle_identifier: com.tonnom.perfecttime
       vars:
-        BUNDLE_ID: com.rallow.perfecttime
+        BUNDLE_ID: com.tonnom.perfecttime
         XCODE_WORKSPACE: ios/perfecttime.xcworkspace
         XCODE_SCHEME: perfecttime
       node: v18.17.0
@@ -31,7 +31,7 @@ workflows:
     publishing:
       email:
         recipients:
-          - your@email.com
+          - salimchamsdine@gmail.com
         notify:
           success: true
           failure: true
