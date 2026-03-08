@@ -14,7 +14,7 @@ workflows:
           npx expo prebuild --platform android
       - name: Fix Hermes permissions
         script: |
-          chmod +x node_modules/react-native/sdks/hermesc/linux64-bin/hermesc
+          chmod -R 755 node_modules/react-native/sdks/hermesc/
       - name: Build APK
         script: |
           cd android
