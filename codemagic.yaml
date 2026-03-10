@@ -22,7 +22,7 @@ workflows:
             CODE_SIGNING_REQUIRED=NO \
             CODE_SIGN_IDENTITY=""
           mkdir -p $CM_BUILD_DIR/ipa/Payload
-          cp -r "$CM_BUILD_DIR/MotsSecrets.xcarchive/Products/Applications/perfecttime.app" \
+          cp -r "$CM_BUILD_DIR/perfecttime.xcarchive/Products/Applications/perfecttime.app" \
             "$CM_BUILD_DIR/ipa/Payload/"
           cd $CM_BUILD_DIR/ipa
           zip -r perfecttime.ipa Payload
@@ -33,3 +33,4 @@ workflows:
     artifacts:
 
       - $CM_BUILD_DIR/ipa/perfecttime.ipa
+
