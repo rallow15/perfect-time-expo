@@ -1,13 +1,36 @@
 workflows:
+  android-workflow:
+    name: Android APK Build
+    max_build_duration: 60
+    environment:
+      node: latest
+    scripts:
+      - name: Install dependencies
+        script: |
+          npm install
+          chmod -R 755 node_modules/.bin/
+          chmod -R 755 node_modules/react-native/sdks/hermesc/
+      - name: Expo prebuild
+        script: npx expo prebuild --platform android
+      - name: Build APK
+        script: |
+          cd android
+          chmod +x gradlew
+          ./gradlew assembleRelease
+    artifacts:
+      - android/app/build/outputs/apk/release/app-release.apk
+
   ios-workflow:
-    name: iOS Build
+    name: iOS IPA Build
     max_build_duration: 60
     environment:
       xcode: latest
       node: latest
     scripts:
       - name: Install dependencies
-        script: npm install
+        script: |
+          npm install
+          chmod -R 755 node_modules/.bin/
       - name: Expo prebuild
         script: npx expo prebuild --platform ios
       - name: Build IPA unsigned
@@ -28,10 +51,4 @@ workflows:
           zip -r perfecttime.ipa Payload
     artifacts:
       - $CM_BUILD_DIR/ipa/perfecttime.ipa
-          cd $CM_BUILD_DIR/ipa
-          zip -r perfecttime.ipa Payload
-    artifacts:
-
-      - $CM_BUILD_DIR/ipa/perfecttime.ipa
-
 
