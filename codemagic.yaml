@@ -13,7 +13,7 @@ workflows:
       - name: Build IPA unsigned
         script: |
           xcodebuild -workspace ios/perfecttime.xcworkspace \
-            -scheme MotsSecrets \
+            -scheme perfecttime \
             -configuration Release \
             -sdk iphoneos \
             -archivePath $CM_BUILD_DIR/perfecttime.xcarchive \
@@ -33,4 +33,5 @@ workflows:
     artifacts:
 
       - $CM_BUILD_DIR/ipa/perfecttime.ipa
+
 
